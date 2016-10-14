@@ -2,7 +2,6 @@ package architecture;
 
 import api.SportResource;
 import api.UserResource;
-import exceptions.InvalidFieldException;
 import exceptions.InvalidRequestException;
 import http.HttpRequest;
 import http.HttpResponse;
@@ -28,7 +27,7 @@ public class Dispatcher {
             String sport = request.getParams().get("sport");
             if (sport != null) {
                 try {
-                    response.setBody(userResource.usersBySport(sport));
+                    response.setBody(userResource.usersBySport(sport).toString());
                 } catch (Exception e) {
                     this.responseError(response, e);
                 }
