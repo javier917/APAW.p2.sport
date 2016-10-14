@@ -91,7 +91,8 @@ public class Main {
         this.request();
 
         request.setMethod(HttpMethod.GET);
-        request.setPath("users/search?sport=tenis");
+        request.setPath("users/search");
+        request.addQueryParam("sport", "tenis");
         this.request();
 
         request.setMethod(HttpMethod.POST);
