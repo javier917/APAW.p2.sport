@@ -33,9 +33,14 @@ public class UserController {
     }
 
     public void addSport(String user, String sport) throws NotFoundSportException {
-        if (DaoFactory.getFactory().getSportDao().read(sport) == null) {
-            throw new NotFoundSportException("" + sport);
-        }
         DaoFactory.getFactory().getUserDao().addSport(user, sport);
+    }
+    
+    public boolean existUser(String user){
+        if (DaoFactory.getFactory().getUserDao().read(user) == null) {
+            return false;
+        }else{
+            return true;
+        }
     }
 }
