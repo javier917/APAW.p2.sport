@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.List;
 
+import daos.DaoFactory;
+import entities.User;
 import exceptions.NotFoundSportException;
 import wrapper.UserListWrapper;
 import wrapper.UserWrapper;
@@ -11,7 +13,7 @@ public class UserController {
     public UserListWrapper userList() {
         List<User> userList = DaoFactory.getFactory().getUserDao().findAll();
         UserListWrapper userListWrapper = new UserListWrapper();
-        for (User user : UserList) {
+        for (User user : userList) {
             userListWrapper.addUserWrapper(new UserWrapper(user.getNick(), user.getEmail()));
         }
         return userListWrapper;

@@ -1,6 +1,6 @@
 package daos;
 
-import java.util.List;
+import entities.Sport;
 
 public interface SportDao extends GenericDao<Sport, String> {
 

@@ -3,6 +3,8 @@ package api;
 import controllers.UserController;
 import exceptions.InvalidFieldException;
 import exceptions.NotFoundSportException;
+import wrapper.UserListWrapper;
+import wrapper.UsersSportWrapper;
 
 public class UserResource {
     public UserListWrapper userList() {

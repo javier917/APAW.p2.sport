@@ -1,5 +1,6 @@
 package architecture;
 
+import daos.DaoFactory;
 import http.HttpMethod;
 import http.HttpRequest;
 import http.HttpResponse;
