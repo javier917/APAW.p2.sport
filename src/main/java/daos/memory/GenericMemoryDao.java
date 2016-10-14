@@ -16,7 +16,7 @@ public abstract class GenericMemoryDao <T> implements GenericDao<T, String>{
     @Override
     public void create(T entity) {
         map.put(getId(entity), entity);
-        this.setId(entity, map.size());
+        this.setId(entity, getId(entity));
     }
 
     @Override
@@ -42,5 +42,5 @@ public abstract class GenericMemoryDao <T> implements GenericDao<T, String>{
     }
     protected abstract String getId(T entity);
 
-    protected abstract void setId(T entity, Integer id);
+    protected abstract void setId(T entity, String id);
 }
