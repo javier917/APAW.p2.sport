@@ -66,7 +66,8 @@ public class Main {
 
         request.setMethod(HttpMethod.GET);
         request.setPath("users");
-        request.clearQueryParams();
+        this.request();
+        //request.clearQueryParams();
 
         request.setMethod(HttpMethod.POST);
         request.setPath("sports");

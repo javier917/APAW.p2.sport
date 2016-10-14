@@ -22,6 +22,7 @@ public class Dispatcher {
         switch (request.getPath()) {
         case "users":
             response.setBody(userResource.userList().toString());
+            response.setStatus(HttpStatus.OK);
             break;
         case "users/search":
             String sport = request.getParams().get("sport");
@@ -34,9 +35,11 @@ public class Dispatcher {
             } else {
                 responseError(response, new InvalidRequestException(request.getPath()));
             }
+            response.setStatus(HttpStatus.OK);
             break;
         default:
             responseError(response, new InvalidRequestException(request.getPath()));
+            response.setStatus(HttpStatus.BAD_REQUEST);
             break;
         }
     }
@@ -63,6 +66,7 @@ public class Dispatcher {
             break;
         default:
             responseError(response, new InvalidRequestException(request.getPath()));
+            response.setStatus(HttpStatus.BAD_REQUEST);
             break;
         }
     }
@@ -78,12 +82,14 @@ public class Dispatcher {
             }
         } else {
             responseError(response, new InvalidRequestException(request.getPath()));
+            response.setStatus(HttpStatus.BAD_REQUEST);
         }
     }
 
     public void doDelete(HttpRequest request, HttpResponse response) {
         switch (request.getPath()) {
         default:
+            response.setStatus(HttpStatus.BAD_REQUEST);
             responseError(response, new InvalidRequestException(request.getPath()));
             break;
         }

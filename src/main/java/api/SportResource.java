@@ -13,7 +13,7 @@ public class SportResource {
     private void validateField(String field) throws InvalidFieldException, SportExistException {
         if (field == null || field.isEmpty()) {
             throw new InvalidFieldException(field);
-        }else if(! new SportController().existSport(field)){
+        }else if(new SportController().existSport(field)){
             throw new SportExistException();
         }
     }
