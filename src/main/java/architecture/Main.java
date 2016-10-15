@@ -63,11 +63,12 @@ public class Main {
         this.request();
         request.setBody("uno:tres@gmail.com");
         this.request();
-
+        request.setBody(null);
+        
         request.setMethod(HttpMethod.GET);
         request.setPath("users");
         this.request();
-        //request.clearQueryParams();
+        
 
         request.setMethod(HttpMethod.POST);
         request.setPath("sports");
@@ -89,12 +90,14 @@ public class Main {
         this.request();
         request.setBody("ajedrez");
         this.request();
-
+        request.setBody(null);
+        
         request.setMethod(HttpMethod.GET);
         request.setPath("users/search");
         request.addQueryParam("sport", "tenis");
         this.request();
-
+        request.clearQueryParams();
+        
         request.setMethod(HttpMethod.POST);
         request.setPath("noPath");
         this.request();
